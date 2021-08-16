@@ -13,15 +13,15 @@ const routes: Routes = [
         redirectTo: 'order'
       },
       {
-        path: 'client',
+        path: 'clients',
         loadChildren: () => import('../../modules/client/client.module').then(m => m.ClientModule)
       },
       {
-        path: 'order',
+        path: 'orders',
         loadChildren: () => import('../../modules/order/order.module').then(m => m.OrderModule)
       },
       {
-        path: 'product',
+        path: 'products',
         loadChildren: () => import('../../modules/product/product.module').then(m => m.ProductModule)
       },
     ]
