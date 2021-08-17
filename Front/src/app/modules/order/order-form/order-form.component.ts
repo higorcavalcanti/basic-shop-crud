@@ -41,7 +41,7 @@ export class OrderFormComponent extends BaseFormComponent<Order> implements OnIn
     });
 
     combineLatest(controlValue.valueChanges, controlDiscount.valueChanges).subscribe(
-      ([value, discount]) => controlTotal.setValue(value + discount)
+      ([value, discount]) => controlTotal.setValue(value - discount)
     )
   }
 

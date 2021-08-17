@@ -1,0 +1,28 @@
+<button mat-raised-button (click)="add()">
+  Adicionar
+</button>
+
+<table style="width: 100%">
+  <thead>
+  <tr>
+    <th>Produto</th>
+    <th>Valor</th>
+    <th>Remover?</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <tr *ngFor="let control of formArray?.controls; let index = index" [formGroup]="groupAt(index)">
+    <td>
+      <app-product-selector formControlName="id" (selected)="productChanged(index, $event)"></app-product-selector>
+    </td>
+    <td>{{ control?.value?.value }}</td>
+    <td>
+      <button mat-icon-button (click)="remove(index)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </td>
+  </tr>
+  </tbody>
+
+</table>
