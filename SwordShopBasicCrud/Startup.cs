@@ -65,8 +65,6 @@ namespace SwordShopBasicCrud
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "SwordShopBasicCrud v1"));
             }
 
-            app.UseHttpsRedirection();
-
             app.UseRouting();
 
             app.UseCors("DefaultCors");
