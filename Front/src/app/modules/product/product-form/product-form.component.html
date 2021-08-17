@@ -13,16 +13,16 @@
   <div>
     <mat-form-field appearance="standard">
       <mat-label>Valor</mat-label>
-      <input matInput placeholder="Digite o valor" formControlName="value">
+      <input matInput placeholder="Digite o valor" formControlName="value" type="number">
     </mat-form-field>
   </div>
 </div>
 
 <div mat-dialog-actions>
-  <button mat-button (click)="cancel()">
+  <button mat-button (click)="cancel()" type="button">
     Cancelar
   </button>
-  <button mat-raised-button color="primary" (click)="save()">
+  <button mat-raised-button color="primary" (click)="save()" type="submit">
     Salvar
   </button>
 </div>
