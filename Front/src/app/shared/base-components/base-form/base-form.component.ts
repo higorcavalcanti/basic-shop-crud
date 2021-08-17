@@ -29,6 +29,10 @@ export abstract class BaseFormComponent<T extends BaseModel> implements OnInit {
     }
   }
 
+  getDataFromForm(): T {
+    return this.form.getRawValue();
+  }
+
   getAddObservable(data: T) {
     return this.service.add(data);
   }
@@ -39,7 +43,7 @@ export abstract class BaseFormComponent<T extends BaseModel> implements OnInit {
   }
 
   getObservable() {
-    const data = this.form.getRawValue();
+    const data = this.getDataFromForm();
     if ( this.isEdit ) {
       return this.getEditObservable(this.data!.id!, data);
     }

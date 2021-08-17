@@ -51,8 +51,8 @@ namespace SwordShopBasicCrud
 
 
             services.AddScoped<BaseService<Client>>();
-            services.AddScoped<BaseService<Order>>();
             services.AddScoped<BaseService<Product>>();
+            services.AddScoped<OrderService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

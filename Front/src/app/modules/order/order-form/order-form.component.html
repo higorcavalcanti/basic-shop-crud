@@ -2,41 +2,41 @@
   {{ isEdit ? 'Editar' : 'Adicionar' }} produto
 </h1>
 
-<div mat-dialog-content [formGroup]="form">
-  <div>
-    <mat-form-field appearance="standard">
-      <mat-label>Data</mat-label>
-      <input matInput placeholder="Selecione a data" formControlName="date" [matDatepicker]="picker">
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
-  </div>
+<div mat-dialog-content>
+  <form [formGroup]="form">
+    <div class="form-row">
+      <mat-form-field appearance="standard">
+        <mat-label>Data</mat-label>
+        <input matInput placeholder="Selecione a data" formControlName="date" [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
 
+      <app-client-selector formControlName="clientId"></app-client-selector>
+    </div>
 
-  <div>
-    <app-client-selector formControlName="client"></app-client-selector>
-  </div>
+    <div class="form-row">
+      <mat-form-field appearance="standard">
+        <mat-label>Valor</mat-label>
+        <input matInput placeholder="Digite o valor" type="number" formControlName="value">
+      </mat-form-field>
 
-  <div>
-    <mat-form-field appearance="standard">
-      <mat-label>Valor</mat-label>
-      <input matInput placeholder="Digite o valor" type="number" formControlName="value">
-    </mat-form-field>
-  </div>
+      <mat-form-field appearance="standard">
+        <mat-label>Desconto</mat-label>
+        <input matInput placeholder="Digite o desconto" type="number" formControlName="discount">
+      </mat-form-field>
 
-  <div>
-    <mat-form-field appearance="standard">
-      <mat-label>Desconto</mat-label>
-      <input matInput placeholder="Digite o desconto" type="number" formControlName="discount">
-    </mat-form-field>
-  </div>
+      <mat-form-field appearance="standard">
+        <mat-label>Total</mat-label>
+        <input matInput placeholder="Digite o total" type="number" formControlName="total">
+      </mat-form-field>
+    </div>
 
-  <div>
-    <mat-form-field appearance="standard">
-      <mat-label>Total</mat-label>
-      <input matInput placeholder="Digite o total" type="number" formControlName="total">
-    </mat-form-field>
-  </div>
+    <div class="form-row">
+      <app-order-form-product-list formControlName="products"></app-order-form-product-list>
+    </div>
+
+  </form>
 </div>
 
 <div mat-dialog-actions>

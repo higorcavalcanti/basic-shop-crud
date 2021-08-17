@@ -1,0 +1,9 @@
+:host {
+  form {
+    .form-row {
+      & > * {
+        margin: 0 5px;
+      }
+    }
+  }
+}

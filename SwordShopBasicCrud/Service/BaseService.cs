@@ -18,7 +18,7 @@ namespace SwordShopBasicCrud.Service
             _context = context;
         }
 
-        public async Task<IList<TModel>> GetAllAsync()
+        public virtual async Task<IList<TModel>> GetAllAsync()
         {
             return await _context.Set<TModel>().ToListAsync();
         }

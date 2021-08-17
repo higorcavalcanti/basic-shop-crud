@@ -14,12 +14,16 @@ import { ClientSelectorModule } from '../../shared/components/client-selector/cl
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
+import { OrderFormProductListComponent } from './order-form/order-form-product-list/order-form-product-list.component';
+import { ProductSelectorModule } from '../../shared/components/product-selector/product-selector.module';
+import { MatListModule } from '@angular/material/list';
 
 
 @NgModule({
   declarations: [
     OrderFormComponent,
-    OrderListComponent
+    OrderListComponent,
+    OrderFormProductListComponent
   ],
   imports: [
     CommonModule,
@@ -34,6 +38,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatDatepickerModule,
     MatNativeDateModule,
     MatIconModule,
+    ProductSelectorModule,
+    MatListModule,
   ]
 })
 export class OrderModule { }

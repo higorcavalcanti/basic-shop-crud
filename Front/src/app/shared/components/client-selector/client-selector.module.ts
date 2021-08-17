@@ -3,8 +3,9 @@ import { CommonModule } from '@angular/common';
 import { ClientSelectorComponent } from './client-selector.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatOptionModule } from '@angular/material/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 
 
 
@@ -20,7 +21,9 @@ import { MatInputModule } from '@angular/material/input';
     MatAutocompleteModule,
     MatOptionModule,
     ReactiveFormsModule,
-    MatInputModule
+    MatInputModule,
+    MatSelectModule,
+    FormsModule
   ]
 })
 export class ClientSelectorModule { }

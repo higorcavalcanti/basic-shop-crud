@@ -10,7 +10,7 @@ namespace SwordShopBasicCrud.Controllers
 {
     public class OrderController : BaseController<Order>
     {
-        public OrderController(BaseService<Order> service) : base(service)
+        public OrderController(OrderService service) : base(service)
         {
 
         }

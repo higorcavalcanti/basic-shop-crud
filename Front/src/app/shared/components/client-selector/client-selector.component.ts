@@ -13,8 +13,4 @@ export class ClientSelectorComponent extends BaseSelectorComponent<Client> {
   constructor(injector: Injector, service: ClientService) {
     super(injector, service);
   }
-
-  displayFn(data: Client): string {
-    return data?.name ?? '';
-  }
 }

@@ -1,15 +1,8 @@
 <mat-form-field appearance="standard">
   <mat-label>Cliente</mat-label>
-  <input type="text"
-         placeholder="Pick one"
-         aria-label="Number"
-         matInput
-         [formControl]="control"
-         [matAutocomplete]="auto">
-
-  <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" [displayWith]="displayFn">
-    <mat-option *ngFor="let option of options$ | async" [value]="option">
-      {{ displayFn(option) }}
+  <mat-select [formControl]="control" (ngModelChange)="changed($event)">
+    <mat-option *ngFor="let option of options" [value]="option.id">
+      {{ option?.name }}
     </mat-option>
-  </mat-autocomplete>
+  </mat-select>
 </mat-form-field>
