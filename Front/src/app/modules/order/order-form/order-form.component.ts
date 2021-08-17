@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 import { BaseFormComponent } from '../../../shared/base-components/base-form/base-form.component';
@@ -47,8 +47,8 @@ export class OrderFormComponent extends BaseFormComponent<Order> implements OnIn
 
   getFormGroup(): FormGroup {
     return this.formBuilder.group({
-      date: null,
-      clientId: null,
+      date: [null, [Validators.required]],
+      clientId: [null, [Validators.required]],
       value: [{ value: null, disabled: true }],
       discount: null,
       total: [{ value: null, disabled: true }],

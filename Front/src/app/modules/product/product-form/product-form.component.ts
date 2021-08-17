@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { BaseFormComponent } from '../../../shared/base-components/base-form/base-form.component';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ProductService } from '../../../core/http/product.service';
 import { Product } from '../../../core/models/product';
@@ -23,8 +23,8 @@ export class ProductFormComponent extends BaseFormComponent<Product> {
 
   getFormGroup(): FormGroup {
     return this.formBuilder.group({
-      description: null,
-      value: null,
+      description: [null, [Validators.required]],
+      value: [null, [Validators.required, Validators.min(0)]],
     });
   }
 }

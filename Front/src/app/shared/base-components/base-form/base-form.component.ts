@@ -51,8 +51,18 @@ export abstract class BaseFormComponent<T extends BaseModel> implements OnInit {
   }
 
   save() {
+
+    if ( this.form.invalid ) {
+      alert('Falha ao salvar, existem campos com erro!');
+      return;
+    }
+
     this.getObservable().subscribe(
-      req => this.close({ success: true, data: req?.data })
+      req => this.close({ success: true, data: req?.data }),
+      error => {
+        const message = error?.error?.errorMessage ?? 'Erro desconhecido';
+        alert('Falha ao salvar item! ' + message);
+      }
     )
   }
 

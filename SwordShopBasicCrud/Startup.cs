@@ -9,6 +9,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using SwordShopBasicCrud.Context;
+using SwordShopBasicCrud.Filters;
 using SwordShopBasicCrud.Models;
 using SwordShopBasicCrud.Service;
 using System;
@@ -41,7 +42,10 @@ namespace SwordShopBasicCrud
                 });
             });
 
-            services.AddControllers();
+            services.AddControllers(config =>
+            {
+                config.Filters.Add(new CustomExceptionFilter());
+            });
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "SwordShopBasicCrud", Version = "v1" });
@@ -50,7 +54,7 @@ namespace SwordShopBasicCrud
             services.AddDbContext<StoreContext>(options => options.UseInMemoryDatabase("SwordShopBasicCrud"));
 
 
-            services.AddScoped<BaseService<Client>>();
+            services.AddScoped<ClientService>();
             services.AddScoped<BaseService<Product>>();
             services.AddScoped<OrderService>();
         }

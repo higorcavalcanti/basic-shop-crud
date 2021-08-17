@@ -1,7 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { BaseFormComponent } from '../../../shared/base-components/base-form/base-form.component';
 import { Client } from '../../../core/models/client';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ClientService } from '../../../core/http/client.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
@@ -23,9 +23,9 @@ export class ClientFormComponent extends BaseFormComponent<Client> {
 
   getFormGroup(): FormGroup {
     return this.formBuilder.group({
-      name: null,
-      email: null,
-      village: null
+      name: [null, [Validators.required]],
+      email: [null, [Validators.required, Validators.email]],
+      village: [null, [Validators.required]]
     });
   }
 }

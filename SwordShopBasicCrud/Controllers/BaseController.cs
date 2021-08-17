@@ -15,7 +15,7 @@ namespace SwordShopBasicCrud.Controllers
     public abstract class BaseController<TModel> : ControllerBase
         where TModel : BaseModel
     {
-        protected readonly BaseService<TModel> _service;
+        protected BaseService<TModel> _service;
         public BaseController(BaseService<TModel> service)
         {
             _service = service;
