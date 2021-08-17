@@ -48,12 +48,7 @@ export abstract class BaseFormComponent<T extends BaseModel> implements OnInit {
 
   save() {
     this.getObservable().subscribe(
-      req => {
-        this.close({
-          success: true,
-          data: req?.data
-        });
-      },
+      req => this.close({ success: true, data: req?.data })
     )
   }
 

@@ -1,0 +1,28 @@
+<h1 mat-dialog-title>
+  {{ isEdit ? 'Editar' : 'Adicionar' }} produto
+</h1>
+
+<div mat-dialog-content [formGroup]="form">
+  <div>
+    <mat-form-field appearance="standard">
+      <mat-label>Descrição</mat-label>
+      <input matInput placeholder="Digite a descrição" formControlName="description">
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field appearance="standard">
+      <mat-label>Valor</mat-label>
+      <input matInput placeholder="Digite o valor" formControlName="value">
+    </mat-form-field>
+  </div>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="cancel()">
+    Cancelar
+  </button>
+  <button mat-raised-button color="primary" (click)="save()">
+    Salvar
+  </button>
+</div>
