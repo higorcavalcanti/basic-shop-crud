@@ -10,6 +10,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { OrderListComponent } from './order-list/order-list.component';
 import { MatTableModule } from '@angular/material/table';
+import { ClientSelectorModule } from '../../shared/components/client-selector/client-selector.module';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 
 @NgModule({
@@ -25,7 +28,10 @@ import { MatTableModule } from '@angular/material/table';
     MatFormFieldModule,
     MatButtonModule,
     MatInputModule,
-    MatTableModule
+    MatTableModule,
+    ClientSelectorModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ]
 })
 export class OrderModule { }

@@ -20,12 +20,16 @@ export class OrderFormComponent extends BaseFormComponent<Order> {
     @Inject(MAT_DIALOG_DATA) data: Order,
   ) {
     super(service, data, matDialog);
+    // super(service, undefined, undefined);
   }
 
   getFormGroup(): FormGroup {
     return this.formBuilder.group({
-      description: null,
+      date: null,
+      client: null,
       value: null,
+      discount: null,
+      total: null,
     });
   }
 }
