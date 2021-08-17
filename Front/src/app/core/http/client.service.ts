@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { BaseHttpService } from './base-http.service';
 import { Client } from '../models/client';
 
@@ -7,4 +8,8 @@ import { Client } from '../models/client';
 })
 export class ClientService extends BaseHttpService<Client> {
   ENDPOINT = 'client';
+
+  constructor( http: HttpClient ) {
+    super(http);
+  }
 }

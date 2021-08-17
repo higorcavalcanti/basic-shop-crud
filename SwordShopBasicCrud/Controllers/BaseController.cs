@@ -49,7 +49,7 @@ namespace SwordShopBasicCrud.Controllers
             return Ok(result);
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public virtual async Task<ActionResult<Response<TModel>>> Delete([FromRoute] long id)
         {
             var result = await _service.DeleteAsync(id);

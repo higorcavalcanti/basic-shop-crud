@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { BaseModel } from '../models/base-model';
-import { Response } from '../models/response';
+import { HttpResponse } from '../models/http-response';
 
 @Injectable({
   providedIn: 'root'
@@ -16,23 +16,23 @@ export class BaseHttpService<T extends BaseModel> {
   ) { }
 
   get(id: number) {
-    return this.http.get<Response<T>>(this.url(id));
+    return this.http.get<HttpResponse<T>>(this.url(id));
   }
 
   all() {
-    return this.http.get<Response<T[]>>(this.url());
+    return this.http.get<HttpResponse<T[]>>(this.url());
   }
 
   add(data: T) {
-    return this.http.post<Response<T>>(this.url(), data);
+    return this.http.post<HttpResponse<T>>(this.url(), data);
   }
 
   edit(id: number, data: T) {
-    return this.http.put<Response<T>>(this.url(id), data);
+    return this.http.put<HttpResponse<T>>(this.url(id), data);
   }
 
   delete(id: number) {
-    return this.http.delete<Response<T>>(this.url(id));
+    return this.http.delete<HttpResponse<T>>(this.url(id));
   }
 
   protected url(...args: any[]): string {

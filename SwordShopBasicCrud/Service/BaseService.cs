@@ -57,6 +57,7 @@ namespace SwordShopBasicCrud.Service
             var entityInDb = await GetByIdAsync(id);
 
             _context.Remove(entityInDb);
+            await _context.SaveChangesAsync();
 
             return entityInDb;
         }

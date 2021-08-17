@@ -2,7 +2,6 @@
   Adicionar
 </button>
 
-
 <table mat-table [dataSource]="data">
   <ng-container matColumnDef="name">
     <th mat-header-cell *matHeaderCellDef> Nome </th>
@@ -22,8 +21,8 @@
   <ng-container matColumnDef="actions" style="width: 10em">
     <th mat-header-cell *matHeaderCellDef> Ações </th>
     <td mat-cell *matCellDef="let element">
-      <button>Edit</button>
-      <button>Delete</button>
+      <button (click)="edit(element)">Edit</button>
+      <button (click)="remove(element)">Delete</button>
     </td>
   </ng-container>
 

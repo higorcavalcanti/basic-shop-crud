@@ -1,1 +1,35 @@
-<p>client-form works!</p>
+<h1 mat-dialog-title>
+  {{ isEdit ? 'Editar' : 'Adicionar' }} cliente
+</h1>
+
+<div mat-dialog-content [formGroup]="form">
+  <div>
+    <mat-form-field appearance="standard">
+      <mat-label>Nome</mat-label>
+      <input matInput placeholder="Digite o nome" formControlName="name">
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field appearance="standard">
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="Digite o email" formControlName="email">
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field appearance="standard">
+      <mat-label>Aldeia</mat-label>
+      <input matInput placeholder="Digite a aldeia" formControlName="village">
+    </mat-form-field>
+  </div>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="cancel()">
+    Cancelar
+  </button>
+  <button mat-raised-button color="primary" (click)="save()">
+    Salvar
+  </button>
+</div>
