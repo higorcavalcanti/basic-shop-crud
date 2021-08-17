@@ -13,6 +13,7 @@ import { MatTableModule } from '@angular/material/table';
 import { ClientSelectorModule } from '../../shared/components/client-selector/client-selector.module';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     ClientSelectorModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatIconModule,
   ]
 })
 export class OrderModule { }
