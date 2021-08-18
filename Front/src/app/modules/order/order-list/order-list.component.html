@@ -2,7 +2,7 @@
   Adicionar
 </button>
 
-<table mat-table [dataSource]="data" style="width: 100%">
+<table mat-table [dataSource]="(data$ | async) ?? []" style="width: 100%">
   <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef> Nº </th>
     <td mat-cell *matCellDef="let element"> {{element.id}} </td>
