@@ -3,12 +3,11 @@ import { ComponentType } from '@angular/cdk/portal';
 import { MatDialog } from '@angular/material/dialog';
 
 import { filter, map, tap } from 'rxjs/operators';
-import { EntityState, QueryEntity } from '@datorama/akita';
 
 import { BaseFormComponent } from '../base-form/base-form.component';
 import { BaseModel } from '../../../core/models/base-model';
-import { BaseHttpService } from '../../../core/http/base-http.service';
 import { ModalResponse } from '../../../core/models/modal-response';
+import { BaseService } from '../../../core/services/base.service';
 
 @Directive()
 export abstract class BaseListComponent<T extends BaseModel> implements OnInit {
@@ -16,14 +15,13 @@ export abstract class BaseListComponent<T extends BaseModel> implements OnInit {
   displayedColumns: string[] = ['actions'];
   formComponent!: ComponentType<BaseFormComponent<T>>;
 
-  data$ = this.query.selectAll();
-  loading$ = this.query.selectLoading();
-  error$ = this.query.selectError();
+  data$ = this.service.all();
+  loading$ = this.service.isLoading();
+  error$ = this.service.hasError();
 
   protected constructor(
-    protected service: BaseHttpService<T>,
+    protected service: BaseService<T>,
     protected matDialog: MatDialog,
-    protected query: QueryEntity<EntityState<T>>,
   ) { }
 
   ngOnInit(): void {
@@ -31,7 +29,7 @@ export abstract class BaseListComponent<T extends BaseModel> implements OnInit {
   }
 
   loadData() {
-    this.service.all().subscribe();
+    this.service.load();
   }
 
   add() {

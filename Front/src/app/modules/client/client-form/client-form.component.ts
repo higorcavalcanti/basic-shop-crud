@@ -2,8 +2,8 @@ import { Component, Inject } from '@angular/core';
 import { BaseFormComponent } from '../../../shared/base-components/base-form/base-form.component';
 import { Client } from '../../../core/models/client';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ClientService } from '../../../core/http/client.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { ClientsService } from '../../../core/services/clients.service';
 
 @Component({
   selector: 'app-client-form',
@@ -14,7 +14,7 @@ export class ClientFormComponent extends BaseFormComponent<Client> {
 
   constructor(
     protected formBuilder: FormBuilder,
-    service: ClientService,
+    service: ClientsService,
     matDialog: MatDialogRef<ClientFormComponent>,
     @Inject(MAT_DIALOG_DATA) data: Client,
   ) {

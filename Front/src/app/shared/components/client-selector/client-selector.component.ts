@@ -1,8 +1,7 @@
 import { Component, Injector } from '@angular/core';
 import { BaseSelectorComponent } from '../../base-components/base-selector/base-selector.component';
 import { Client } from '../../../core/models/client';
-import { ClientService } from '../../../core/http/client.service';
-import { ClientsQuery } from '../../../core/query/client.query';
+import { ClientsService } from '../../../core/services/clients.service';
 
 @Component({
   selector: 'app-client-selector',
@@ -11,7 +10,7 @@ import { ClientsQuery } from '../../../core/query/client.query';
 })
 export class ClientSelectorComponent extends BaseSelectorComponent<Client> {
 
-  constructor(injector: Injector, service: ClientService, query: ClientsQuery) {
-    super(injector, service, query);
+  constructor(injector: Injector, service: ClientsService) {
+    super(injector, service);
   }
 }

@@ -3,7 +3,7 @@ import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 
 import { BaseInputComponent } from '../../../../shared/base-components/base-input/base-input.component';
 import { Product } from '../../../../core/models/product';
-import { ProductService } from '../../../../core/http/product.service';
+import { ProductsHttp } from '../../../../core/http/products.http';
 
 @Component({
   selector: 'app-order-form-product-list',
@@ -21,7 +21,7 @@ export class OrderFormProductListComponent extends BaseInputComponent<Product[]>
   constructor(
     protected formBuilder: FormBuilder,
     injector: Injector,
-    protected service?: ProductService,
+    protected service?: ProductsHttp,
   ) {
     super(injector);
   }

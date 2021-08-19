@@ -1,9 +1,8 @@
 import { Directive, Injector, OnInit, Output, EventEmitter } from '@angular/core';
 
 import { BaseInputComponent } from '../base-input/base-input.component';
-import { BaseHttpService } from '../../../core/http/base-http.service';
 import { BaseModel } from '../../../core/models/base-model';
-import { EntityState, QueryEntity } from '@datorama/akita';
+import { BaseService } from '../../../core/services/base.service';
 
 @Directive()
 export abstract class BaseSelectorComponent<T extends BaseModel> extends BaseInputComponent<T> implements OnInit {
@@ -14,15 +13,14 @@ export abstract class BaseSelectorComponent<T extends BaseModel> extends BaseInp
 
   protected constructor(
     injector: Injector,
-    protected service: BaseHttpService<T>,
-    protected query: QueryEntity<EntityState<T>>,
+    protected service: BaseService<T>,
   ) {
     super(injector);
   }
 
   ngOnInit() {
-    this.service?.all().subscribe();
-    this.query.selectAll().subscribe(data => this.options = data)
+    this.service?.load();
+    this.service.all().subscribe(data => this.options = data)
   }
 
   changed(value: any) {

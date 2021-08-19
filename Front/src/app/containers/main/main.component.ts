@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
-import { HeaderService } from '../../core/services/header-service';
 
 @Component({
   selector: 'app-main',
@@ -17,11 +16,8 @@ export class MainComponent {
       shareReplay()
     );
 
-  header$ = this.headerService.header$;
-
   constructor(
     private breakpointObserver: BreakpointObserver,
-    private headerService: HeaderService,
   ) {}
 
 }

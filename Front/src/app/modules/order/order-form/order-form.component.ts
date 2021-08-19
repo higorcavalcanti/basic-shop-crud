@@ -1,12 +1,12 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { combineLatest } from 'rxjs';
 
 import { BaseFormComponent } from '../../../shared/base-components/base-form/base-form.component';
 import { Order } from '../../../core/models/order';
-import { OrderService } from '../../../core/http/order.service';
 import { Product } from '../../../core/models/product';
-import { combineLatest } from 'rxjs';
+import { OrdersService } from '../../../core/services/orders.service';
 
 @Component({
   selector: 'app-order-form',
@@ -17,7 +17,7 @@ export class OrderFormComponent extends BaseFormComponent<Order> implements OnIn
 
   constructor(
     protected formBuilder: FormBuilder,
-    service: OrderService,
+    service: OrdersService,
     matDialog: MatDialogRef<OrderFormComponent>,
     @Inject(MAT_DIALOG_DATA) data: Order,
   ) {

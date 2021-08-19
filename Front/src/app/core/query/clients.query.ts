@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { EntityUIQuery, QueryEntity } from '@datorama/akita';
-import { ClientsState, ClientsStore, ClientsUiState } from '../store/client.store';
+import { ClientsState, ClientsStore, ClientsUiState } from '../store/clients.store';
 import { Client } from '../models/client';
 import { map } from 'rxjs/operators';
 

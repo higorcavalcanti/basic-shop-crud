@@ -1,9 +1,9 @@
 import { Directive, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { BaseHttpService } from '../../../core/http/base-http.service';
 import { BaseModel } from '../../../core/models/base-model';
 import { ModalResponse } from '../../../core/models/modal-response';
 import { MatDialogRef } from '@angular/material/dialog';
+import { BaseService } from '../../../core/services/base.service';
 
 @Directive()
 export abstract class BaseFormComponent<T extends BaseModel> implements OnInit {
@@ -15,7 +15,7 @@ export abstract class BaseFormComponent<T extends BaseModel> implements OnInit {
   }
 
   protected constructor(
-    protected service: BaseHttpService<T>,
+    protected service: BaseService<T>,
     protected data?: T,
     protected dialogRef?: MatDialogRef<BaseFormComponent<T>>
   ) { }
